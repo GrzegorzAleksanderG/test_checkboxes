@@ -1,0 +1,29 @@
+{
+    "transfersParams": [
+        {
+            "amountOfTransfers":null,
+            "textTransfer":"ALL",
+            "textOnly":"ONLY"
+        },
+        {
+            "amountOfTransfers":0,
+            "textTransfer":"NO TRANSFERS",
+            "textOnly":"ONLY"
+        },
+        {
+            "amountOfTransfers":1,
+            "textTransfer":"1 TRANSFER",
+            "textOnly":"ONLY"
+        },
+        {
+            "amountOfTransfers":2,
+            "textTransfer":"2 TRANSFERS",
+            "textOnly":"ONLY"
+        },
+        {
+            "amountOfTransfers":3,
+            "textTransfer":"3 TRANSFERS",
+            "textOnly":"ONLY"
+        }
+    ]
+}

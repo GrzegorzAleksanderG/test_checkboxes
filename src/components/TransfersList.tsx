@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import * as data from "./../API/fakeAPI_params.json";
+import * as data from "./../API/fakeAPI_transfers.json";
 //import TransferListItem from './TransferListItem';
 
 

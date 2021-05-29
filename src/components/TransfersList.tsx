@@ -1,27 +1,42 @@
-import { useState, useEffect } from "react";
-import * as data from "./../API/fakeAPI_transfers.json";
-//import TransferListItem from './TransferListItem';
-
+import { useState, useEffect } from "react";         
+import {TransferListItemInterface} from "./../interfaces/TransferListItemInterface";
+import TransferListItem from './TransferListItem';
+import './style.css';
 
 const TransferList = () => {
 
     const [listOfItems, setListOfItems] = useState([]);
 
     useEffect(() => {
-        fetch("./../API/fakeAPI_params.json", {
+        fetch("http://www.mocky.io/v3/48cba781-18bb-406b-a7a7-fad090ab9e0c", {
             headers : { 
               'Content-Type': 'application/json',
               'Accept': 'application/json'
-            }}).then((res) => {
+            }  
+        }).then((res) => {
                 return res;}).then((data) => {
                     return data.json()}).then((jsonElement) => {
-                        console.log(jsonElement)})
+                        setListOfItems(jsonElement.transfersParams)})
     }, [])
 
     return (
-        <div>
-            <h1>NUMBER OF TRANSFERS</h1>
-            {listOfItems.map((x) => {return x})}
+        <div className="list">
+            <h4>NUMBER OF TRANSFERS</h4>
+            <table>
+                <tbody>
+                    {
+                        listOfItems.map((x: TransferListItemInterface, index: number) => {
+                            return <TransferListItem
+                                        key={index}
+                                        amountOfTransfers={x.amountOfTransfers}
+                                        textTransfer={x.textTransfer}
+                                        textOnly={x.textOnly}
+                                    />
+                            }
+                        )
+                    }
+                </tbody>
+            </table>
         </div>
     );
 } 

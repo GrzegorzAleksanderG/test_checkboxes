@@ -1,0 +1,12 @@
+td.only{
+    padding-left: 0.2em;
+    color:cyan;
+}
+
+div.blurred-borders{
+    border: solid 1.5em rgba(#000, .2);
+}
+
+div.list{
+    float:left;
+}

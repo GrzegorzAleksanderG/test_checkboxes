@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {TransferListItemInterface} from "./../interfaces/TransferListItemInterface";
 import TransferListItem from './TransferListItem';
 import './style.css';
+import { connect } from "react-redux";
 
 const TransferList = () => {
 
@@ -40,4 +41,4 @@ const TransferList = () => {
         </div>
     );
 } 
-export default TransferList;
+export default connect()(TransferList);

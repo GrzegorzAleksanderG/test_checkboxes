@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import { TicketInterface } from '../interfaces/TicketInterface';
 import './style.css';
 
@@ -8,4 +9,4 @@ const Ticket = ({countTransfers, textTransfers} : TicketInterface) => {
         </div>
     )
 }
-export default Ticket;
+export default connect()(Ticket);

@@ -1,0 +1,4 @@
+export enum ACTION_TYPES  { 
+    NUMBER_OF_TRANSFER = "NUMBER_OF_TRANSFER" 
+}
+

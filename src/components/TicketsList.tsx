@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { TicketInterface } from './../interfaces/TicketInterface';
 import Ticket from './Ticket';
 import './style.css';
+import { connect } from 'react-redux';
 
 const TicketsList = () => {
 
@@ -34,4 +35,4 @@ const TicketsList = () => {
         </div>
     )
 }
-export default TicketsList;
+export default connect()(TicketsList);

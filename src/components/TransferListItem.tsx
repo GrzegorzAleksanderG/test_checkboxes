@@ -1,4 +1,4 @@
-//import { selectNumberOfTransferAction } from "../actions/selectNumberOfTransfersAction";
+import { selectNumberOfTransferAction } from "./../actions/selectNumberOfTransfersAction";
 import { useState } from "react";
 import { connect } from "react-redux";
 import {TransferListItemInterface} from "./../interfaces/TransferListItemInterface";
@@ -8,6 +8,11 @@ const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : Transfer
 
     const [checked, setChecked] = useState(false);
 
+    const handleOnChange = () => {
+        //store.dispatch(selectNumberOfTransferAction(amountOfTransfers));
+        console.log("handleOnChange")
+    }
+
     return(
         <tr>
             <td>
@@ -15,17 +20,16 @@ const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : Transfer
                 <input type="hidden" value={amountOfTransfers ? amountOfTransfers : -1}/>
             </td>
             <td>{textTransfer}</td>
-            <td className="only">{textOnly}</td>
+            <td className="td--only">{textOnly}</td>
         </tr>
     );
-
-    const handleOnChange = () => {
-        //selectNumberOfTransferAction(amountOfTransfers)
-    }
 }
 
 const mapStateToProps = (state : any) => {
+    console.log("state", state);
     return {selectNumberOfTransferReducer: state.selectNumberOfTransferReducer};
 }
 
-export default connect(mapStateToProps)(TransferListItem);
+const mapDispatchToProps = {selectNumberOfTransferAction};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransferListItem);

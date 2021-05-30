@@ -7,10 +7,10 @@ import {createStore} from 'redux';
 import combineReducers from './reducers/reducers';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={createStore(combineReducers)}>
+  <Provider store={createStore(combineReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+    <React.StrictMode>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );

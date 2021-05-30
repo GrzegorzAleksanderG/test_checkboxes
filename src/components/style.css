@@ -1,21 +1,21 @@
-td.only{
+td.td--only{
     padding-left: 0.2em;
     color:cyan;
 }
 
-div.blurred-borders{
+div.div--blurred-borders{
     -webkit-box-shadow:1px 2px 3px slategrey;
     -moz-box-shadow:1px 2px 3px slategrey;
     box-shadow:1px 2px 3px slategrey;
     border-radius: 5%;
 }
 
-div.list{
+div.div--list{
     float:left;
     padding:20px;
 }
 
-div.transfer{
+div.div--transfer{
     color:slategrey;
     padding: 10px 50px;
     text-align: center;

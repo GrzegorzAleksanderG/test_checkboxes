@@ -21,7 +21,7 @@ const TicketsList = () => {
     }, [])
 
     return (
-        <div className="list">
+        <div className="div--list">
             {
                 listOfTickets.map((x: TicketInterface, index: number) => {
                             return <Ticket
@@ -35,9 +35,4 @@ const TicketsList = () => {
         </div>
     )
 }
-
-const mapStateToProps = (state : any) => {
-    return {selectNumberOfTransferReducer: state.selectNumberOfTransferReducer};
-}
-
-export default connect(mapStateToProps)(TicketsList);
+export default TicketsList;

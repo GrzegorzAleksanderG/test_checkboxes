@@ -21,7 +21,7 @@ const TransferList = () => {
     }, [])
 
     return (
-        <div className="list blurred-borders">
+        <div className="div--list div--blurred-borders">
             <h4>NUMBER OF TRANSFERS</h4>
             <table>
                 <tbody>

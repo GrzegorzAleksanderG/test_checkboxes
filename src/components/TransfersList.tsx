@@ -21,7 +21,7 @@ const TransferList = () => {
     }, [])
 
     return (
-        <div className="list">
+        <div className="list blurred-borders">
             <h4>NUMBER OF TRANSFERS</h4>
             <table>
                 <tbody>
@@ -41,4 +41,9 @@ const TransferList = () => {
         </div>
     );
 } 
-export default connect()(TransferList);
+
+const mapStateToProps = (state : any) => {
+    return {selectNumberOfTransferReducer: state.selectNumberOfTransferReducer};
+}
+
+export default connect(mapStateToProps)(TransferList);

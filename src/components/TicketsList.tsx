@@ -35,4 +35,9 @@ const TicketsList = () => {
         </div>
     )
 }
-export default connect()(TicketsList);
+
+const mapStateToProps = (state : any) => {
+    return {selectNumberOfTransferReducer: state.selectNumberOfTransferReducer};
+}
+
+export default connect(mapStateToProps)(TicketsList);

@@ -1,9 +1,13 @@
 //import { selectNumberOfTransferAction } from "../actions/selectNumberOfTransfersAction";
+import { useState } from "react";
 import { connect } from "react-redux";
 import {TransferListItemInterface} from "./../interfaces/TransferListItemInterface";
 import "./style.css";
 
 const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : TransferListItemInterface) => {
+
+    const [checked, setChecked] = useState(false);
+
     return(
         <tr>
             <td>
@@ -19,4 +23,9 @@ const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : Transfer
         //selectNumberOfTransferAction(amountOfTransfers)
     }
 }
-export default connect()(TransferListItem);
+
+const mapStateToProps = (state : any) => {
+    return {selectNumberOfTransferReducer: state.selectNumberOfTransferReducer};
+}
+
+export default connect(mapStateToProps)(TransferListItem);

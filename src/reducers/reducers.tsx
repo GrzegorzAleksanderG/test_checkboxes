@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
+import { getAllDataFromAPIReducer } from "./getAllDataFromAPIReducer";
 import { selectNumberOfTransferReducer } from './selectNumberOfTransferReducer'
 
 export default combineReducers({
-    selectNumberOfTransferReducer
+    selectedNumbers : selectNumberOfTransferReducer,
+    allDataFromAPI : getAllDataFromAPIReducer
 })

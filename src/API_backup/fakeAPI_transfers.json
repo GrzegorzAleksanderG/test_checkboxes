@@ -1,9 +1,9 @@
 {
     "transfersParams": [
         {
-            "amountOfTransfers":null,
+            "amountOfTransfers":-1,
             "textTransfer":"ALL",
-            "textOnly":"ONLY"
+            "textOnly":""
         },
         {
             "amountOfTransfers":0,

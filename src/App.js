@@ -1,14 +1,12 @@
-import TransferList from "./components/TransfersList.tsx";
-import TicketsList from "./components/TicketsList.tsx";
 import "./App.css";
+import Wrapper from "./components/Wrapper"
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <TransferList/>
-      <TicketsList/>
+      <Wrapper/>
     </div>
   );
 }
-
 export default App;
+

@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
 import combineReducers from './reducers/reducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(combineReducers, composeWithDevTools(
+  applyMiddleware(thunk)
+));
 
 ReactDOM.render(
-  <Provider store={createStore(combineReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+  <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

@@ -4,7 +4,6 @@ import './style.css';
 import { connect, useSelector } from 'react-redux';
 import { selectNumberOfTransferAction } from '../actions/selectNumberOfTransfersAction';
 import { SelectedNumbersInterface } from '../interfaces/SelectedNumbersInterface';
-import { getAllDataFromAPIAction } from '../actions/getAllDataFromAPIAction';
 
 const TicketsList = () => {
 
@@ -34,11 +33,10 @@ const TicketsList = () => {
 const mapStateToProps = (state : any) => {
     return {
         selectedNumbers: state.selectNumberOfTransferReducer,
-        allDataFromAPI : state.getAllDataFromAPIReducer,
         getData : state.getDataReducer
     };
 }
 
-const mapDispatchToProps = {selectNumberOfTransferAction, getAllDataFromAPIAction};
+const mapDispatchToProps = {selectNumberOfTransferAction};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketsList);

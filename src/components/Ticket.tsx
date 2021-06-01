@@ -1,10 +1,9 @@
 import { TicketInterface } from '../interfaces/TicketInterface';
 import './style.css';
-import { getAllDataFromAPIAction } from '../actions/getAllDataFromAPIAction';
 import { selectNumberOfTransferAction } from '../actions/selectNumberOfTransfersAction';
 import { connect } from 'react-redux';
 
-const Ticket = ({countTransfers, textTransfers} : TicketInterface) => {
+const Ticket = ({textTransfers} : TicketInterface) => {
     return(
         <div className="div--blurred-borders div--transfer">
             {textTransfers}
@@ -21,6 +20,6 @@ const mapStateToProps = (state : any) => {
     };
 }
 
-const mapDispatchToProps = {getAllDataFromAPIAction, selectNumberOfTransferAction};
+const mapDispatchToProps = {selectNumberOfTransferAction};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ticket);

@@ -1,5 +1,4 @@
 import { selectNumberOfTransferAction } from "./../actions/selectNumberOfTransfersAction";
-import { getAllDataFromAPIAction } from "./../actions/getAllDataFromAPIAction"
 import { connect, useDispatch, useSelector } from "react-redux";
 import {TransferListItemInterface} from "./../interfaces/TransferListItemInterface";
 import "./style.css";
@@ -42,6 +41,6 @@ const mapStateToProps = (state : any) => {
     };
 }
 
-const mapDispatchToProps = {selectNumberOfTransferAction, getAllDataFromAPIAction};
+const mapDispatchToProps = {selectNumberOfTransferAction};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TransferListItem);

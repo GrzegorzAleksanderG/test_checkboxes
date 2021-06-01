@@ -1,21 +1,17 @@
-import { ACTION_TYPES } from '../actions/actionTypes';
+import { getDataDoneAction, getDataRequestedAction, getDataFailedAction} from '../actions/getDataActions';
 
-export const getDataFromAPI = () => { //async
+export const getDataFromAPI = () => {
     return (dispatch : any) => {
-    //let fetchedData;
-    dispatch({type: ACTION_TYPES.GET_DATA_REQUESTED});
-    fetch("http://www.mocky.io/v3/489c98a8-ac3d-418b-a59a-8408c4a991be", { //await
+    dispatch(getDataRequestedAction);
+    fetch("http://www.mocky.io/v3/489c98a8-ac3d-418b-a59a-8408c4a991be", {
             headers : { 
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json', 
               'Accept': 'application/json'
             }  
         }).then((res) => {return res}).then((data) => {return data.json()}).then((jsonElement) => {
-            //fetchedData = jsonElement;
-            dispatch({type: ACTION_TYPES.GET_DATA_DONE, payload: jsonElement});
+            dispatch(getDataDoneAction(jsonElement));
         }).catch((e:Error) => {
-            //console.log("getAllDataFromAPIReducer ERROR", e.message)
-            dispatch({type: ACTION_TYPES.GET_DATA_FAILED, payload: e});
+            dispatch(getDataFailedAction(e));
         });
-    //return fetchedData;
     }
 }

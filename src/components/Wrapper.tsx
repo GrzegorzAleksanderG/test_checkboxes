@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
-import { getAllDataFromAPIAction } from "../actions/getAllDataFromAPIAction";
 import TransferList from "./TransfersList";
 import TicketsList from "./TicketsList";
 import { selectNumberOfTransferAction } from '../actions/selectNumberOfTransfersAction';
@@ -11,7 +10,7 @@ const Wrapper = () => {
 
     useEffect(() => {      
       dispatch(getDataFromAPI());      
-    }, [])
+    }, [dispatch])
 
     return (
         <>
@@ -24,11 +23,10 @@ const Wrapper = () => {
 const mapStateToProps = (state : any) => {
     return {
         selectedNumbers: state.selectNumberOfTransferReducer,
-        allDataFromAPI: state.getAllDataFromAPIReducer,
         getData : state.getDataReducer
     };
   }
 
-  const mapDispatchToProps = {getAllDataFromAPIAction, selectNumberOfTransferAction};
+  const mapDispatchToProps = {selectNumberOfTransferAction};
 
   export default connect(mapStateToProps, mapDispatchToProps)(Wrapper);

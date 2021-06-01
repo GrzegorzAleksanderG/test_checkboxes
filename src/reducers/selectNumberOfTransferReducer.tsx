@@ -8,10 +8,8 @@ export const selectNumberOfTransferReducer = (state : any[] = [], action : Actio
         ) : state.concat([action.payload])
     }
     if (action.type === ACTION_TYPES.SELECT_ALL_NUMBERS){
-        console.log("reducer", action, state.every((x) => {action.payload.includes(x)}));
         state =  state.length === action.payload.length ? [] : action.payload;
     }
-    console.log("reducer stan", state);
     return state;
 }
 

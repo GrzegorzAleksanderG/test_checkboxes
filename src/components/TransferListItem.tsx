@@ -1,17 +1,27 @@
 import { selectNumberOfTransferAction } from "./../actions/selectNumberOfTransfersAction";
 import { getAllDataFromAPIAction } from "./../actions/getAllDataFromAPIAction"
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import {TransferListItemInterface} from "./../interfaces/TransferListItemInterface";
 import "./style.css";
+import { selectAllNumbersAction } from "../actions/selectAllNumbersAction";
 
 const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : TransferListItemInterface) => {
 
     const dispatch = useDispatch();
 
+    const allExistedFilters = useSelector((state : any) => {
+        if(!state.getData.isLoading && !state.getData.isError && state.getData.allData) {
+            return state.getData.allData.transfersParams.filter((x : any) => {
+                return x.amountOfTransfers>=0}).map((x : any) => {return x.amountOfTransfers})
+        } 
+    })
+
     const handleOnChange = () => {
-        //amountOfTransfers >= 0 
-        dispatch(selectNumberOfTransferAction(amountOfTransfers))
-        //: dispatch(selectNumberOfTransferAction(amountOfTransfers))
+        if(amountOfTransfers >= 0){
+            dispatch(selectNumberOfTransferAction(amountOfTransfers))
+        }else{
+            dispatch(selectAllNumbersAction(allExistedFilters))
+        }
     }
 
     return(
@@ -28,7 +38,7 @@ const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : Transfer
 const mapStateToProps = (state : any) => {
     return {
         selectedNumbers: state.selectNumberOfTransferReducer,
-        allDataFromAPI : state.getAllDataFromAPIReducer
+        getData : state.getDataReducer
     };
 }
 

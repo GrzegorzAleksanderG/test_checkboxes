@@ -7,12 +7,17 @@ import { selectNumberOfTransferAction } from '../actions/selectNumberOfTransfers
 
 const TransferList = () => {
 
-    const transfersParams = useSelector((state : any) => state.getData.allData.transfersParams);
+    const transfersParams = useSelector((state : any) => { 
+        if(!state.getData.isLoading && !state.getData.isError && state.getData.allData) {
+            return state.getData.allData.transfersParams
+        } 
+    });
+    //const all = useSelector((state : any) => state);
 
     return (
         <div className="div--list div--blurred-borders">
+            {console.log("thisState",transfersParams)}
             <h4>NUMBER OF TRANSFERS</h4>
-            {console.log("thisState", transfersParams)}
             <table>
                 <tbody>
                     {
@@ -35,7 +40,7 @@ const TransferList = () => {
 const mapStateToProps = (state : any) => {
     return {
         selectedNumbers: state.selectNumberOfTransferReducer,
-        allDataFromAPI: state.getAllDataFromAPIReducer,
+        getData : state.getDataReducer
     };
 }
 

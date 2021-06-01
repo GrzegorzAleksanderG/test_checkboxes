@@ -5,7 +5,7 @@ import {TransferListItemInterface} from "./../interfaces/TransferListItemInterfa
 import "./style.css";
 import { selectAllNumbersAction } from "../actions/selectAllNumbersAction";
 
-const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : TransferListItemInterface) => {
+const TransferListItem = ({amountOfTransfers, textTransfer, textOnly, checked} : TransferListItemInterface) => {
 
     const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ const TransferListItem = ({amountOfTransfers, textTransfer, textOnly} : Transfer
     return(
         <tr>
             <td>
-                <input type="checkbox" onChange={() => handleOnChange()}/>
+                <input type="checkbox" onChange={() => handleOnChange()} checked={checked}/>
             </td>
             <td>{textTransfer}</td>
             <td className="td--only">{textOnly}</td>
